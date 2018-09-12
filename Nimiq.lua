@@ -29,7 +29,7 @@
 
 
 WebBanking{
-    version = 1.0,
+    version = 1.1,
     description = "Include your Nimiq as cryptoportfolio in MoneyMoney by providing Nimiq addresses as username (comma separated) and a random password",
     services = { "Nimiq" }
 }
@@ -65,11 +65,11 @@ function RefreshAccount (account, since)
         nimiqQuantity = queryBalance(address)
 
         s[#s+1] = {
-            name = address:gsub("....", "%1 "),
+            name = address:gsub("....", "%1 "):upper(),
             currency = nil,
             market = "CoinMarketCap",
             quantity = nimiqQuantity,
-            price = prices["price_eur"],
+            price = price["price_eur"],
         }
     end
 
