@@ -10,7 +10,8 @@ This can be also be used to track your cold storage.
 
 You can get a signed version of this extension from
 
-TODO
+* my [GitHub releases page](https://github.com/paberr/nimiq-moneymoney/releases/tag/v1.1), or
+* the [MoneyMoney Extensions](https://moneymoney-app.com/extensions/) page.
 
 Once downloaded, move `Nimiq.lua` to your MoneyMoney Extensions folder.
 To find the Extensions folder go to `Help` and `Show Database in Finder`.
