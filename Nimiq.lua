@@ -70,6 +70,7 @@ function RefreshAccount (account, since)
             market = "CoinMarketCap",
             quantity = nimiqQuantity,
             price = price["price_eur"],
+            prettyPrint = false
         }
     end
 
@@ -101,3 +102,5 @@ end
 function convertNatoshiToNimiq(natoshi)
     return natoshi / 100000
 end
+
+-- SIGNATURE: MCwCFFsgkUDVl791u6EYq8odj8ZC3eQNAhRiCjpv1lFBNgjopiRt83vW8xe7QA==
