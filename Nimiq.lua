@@ -1,6 +1,6 @@
 -- Inofficial Nimiq Extension for MoneyMoney
 -- Fetches Nimiq quantity for addresses via blockexplorer API
--- Fetches Nimiq price in EUR via coinmarketcap API
+-- Fetches Nimiq price in EUR via coingecko API
 -- Returns cryptoassets as securities
 --
 -- Username: Nimiq Adresses comma separated
@@ -29,7 +29,7 @@
 
 
 WebBanking{
-    version = 1.1,
+    version = 1.2,
     description = "Include your Nimiq as cryptoportfolio in MoneyMoney by providing Nimiq addresses as username (comma separated) and a random password",
     services = { "Nimiq" }
 }
@@ -67,9 +67,9 @@ function RefreshAccount (account, since)
         s[#s+1] = {
             name = address:gsub("....", "%1 "):upper(),
             currency = nil,
-            market = "CoinMarketCap",
+            market = "CoinGecko",
             quantity = nimiqQuantity,
-            price = price["price_eur"],
+            price = price["eur"],
             prettyPrint = false
         }
     end
@@ -83,10 +83,10 @@ end
 
 -- Query Functions
 function queryExchangeRate()
-  local response = Connection():request("GET", "https://api.coinmarketcap.com/v1/ticker/nimiq/?convert=EUR")
+  local response = Connection():request("GET", "https://api.coingecko.com/api/v3/simple/price?ids=nimiq-2&vs_currencies=eur")
   local json = JSON(response)
 
-  return json:dictionary()[1]
+  return json:dictionary()["nimiq-2"]
 end
 
 function queryBalance(nimiqAddress)
@@ -103,4 +103,3 @@ function convertNatoshiToNimiq(natoshi)
     return natoshi / 100000
 end
 
--- SIGNATURE: MCwCFFsgkUDVl791u6EYq8odj8ZC3eQNAhRiCjpv1lFBNgjopiRt83vW8xe7QA==
