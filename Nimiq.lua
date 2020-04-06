@@ -103,3 +103,4 @@ function convertNatoshiToNimiq(natoshi)
     return natoshi / 100000
 end
 
+-- SIGNATURE: MCwCFErJW+IENzIYjJi8Psf7JU+UTO9GAhRmJoJetKXL6Lr9g7RH2hnRHF+mZg==
